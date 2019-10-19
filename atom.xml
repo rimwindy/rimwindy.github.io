@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.mashiro.vip/"/>
-  <updated>2019-10-19T11:38:14.877Z</updated>
+  <updated>2019-10-19T12:58:18.611Z</updated>
   <id>https://www.mashiro.vip/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://www.mashiro.vip/post/test/"/>
     <id>https://www.mashiro.vip/post/test/</id>
     <published>2019-10-18T13:57:00.000Z</published>
-    <updated>2019-10-19T11:38:14.877Z</updated>
+    <updated>2019-10-19T12:58:18.611Z</updated>
     
     <content type="html"><![CDATA[<blockquote><p>以前刚玩ACM时的笔记，拿来做一下Markdown测试</p></blockquote><h1 id="关于scanf函数的返回值问题"><a href="#关于scanf函数的返回值问题" class="headerlink" title="关于scanf函数的返回值问题"></a>关于scanf函数的返回值问题</h1><h2 id="EOF简介"><a href="#EOF简介" class="headerlink" title="EOF简介"></a>EOF简介</h2><p>EOF是一个计算机术语，为End Of File的缩写，在操作系统中表示资料源无更多的资料可读取。资料源通常称为档案或串流。通常在文本的最后存在此字符表示资料结束。C语言中，EOF常被作为文件结束的标志。还有很多文件处理函数处错误后的返回值也是EOF，因此常被用来判断调用一个函数是否成功。</p><h2 id="scanf函数返回成功读入的数据项数，读入数据时遇到了“文件结束”则返回EOF"><a href="#scanf函数返回成功读入的数据项数，读入数据时遇到了“文件结束”则返回EOF" class="headerlink" title="scanf函数返回成功读入的数据项数，读入数据时遇到了“文件结束”则返回EOF"></a>scanf函数返回成功读入的数据项数，读入数据时遇到了“文件结束”则返回EOF</h2><h3 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h3><p>scanf(“%d%d”, &amp;x, &amp;y）：</p><ul><li><p>如果x和y能够被成功读入，那么scanf的返回值就是2</p></li><li><p>如果只有a被成功读入，返回值为1</p></li><li><p>如果a和b都未被成功读入，返回值为0</p></li><li><p>如果遇到错误或遇到end of file，返回值为EOF</p></li><li><p>end of file为Ctrl+z 或者Ctrl+d</p></li></ul><h3 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a,b;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%d %d"</span>,&amp;a, &amp;b) != EOF)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,a+b);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="今日美图"><a href="#今日美图" class="headerlink" title="今日美图"></a>今日美图</h3><p><img alt="pixiv" data-src="https://i.loli.net/2019/10/18/XbyqTFk7trlCpBw.jpg" class="lozad"></p><hr><p align="right"><font face="微软雅黑" color="#BC8F8F" size="3">Zero Sama</font></p><p align="right"><font face="微软雅黑" color="#BC8F8F" size="3">11/16/2018 20:43</font></p>]]></content>
     
