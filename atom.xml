@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.mashiro.vip/"/>
-  <updated>2019-10-27T11:51:41.317Z</updated>
+  <updated>2019-11-02T11:40:32.664Z</updated>
   <id>https://www.mashiro.vip/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Scp下载服务器文件</title>
+    <link href="https://www.mashiro.vip/post/scp/"/>
+    <id>https://www.mashiro.vip/post/scp/</id>
+    <published>2019-11-02T10:46:00.000Z</published>
+    <updated>2019-11-02T11:40:32.664Z</updated>
+    
+    <content type="html"><![CDATA[<p>一个平常的晚上，突然心血来潮想试试Blender 2.80的eevee，遂去官网看了下，没想到正式版都出来了，但下载安装包的时候却出现了极其蛋疼的问题：</p><p><img alt="下载速度感人" data-src="https://i.loli.net/2019/11/02/Y6kudEJ5vzjfhTi.png" class="lozad"></p><p>这显然是难以忍受的，正好我有一台洛杉矶的服务器，于是便打算利用它来下载，然后传回本地电脑上。相关的工具也很多，比如xftp、scp、ftp等，今天就记录一下scp的使用方法。</p><h1 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h1><blockquote><p>若ssh端口不是默认的22，可以加上-P port参数（注意-P为大写）</p></blockquote><h2 id="上传本地文件到服务器"><a href="#上传本地文件到服务器" class="headerlink" title="上传本地文件到服务器"></a>上传本地文件到服务器</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp /path/filename username@servername:/path/</span><br></pre></td></tr></table></figure><h2 id="从服务器上下载文件"><a href="#从服务器上下载文件" class="headerlink" title="从服务器上下载文件"></a>从服务器上下载文件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp username@servername:/path/filename /local_dir</span><br></pre></td></tr></table></figure><h2 id="从服务器下载整个目录"><a href="#从服务器下载整个目录" class="headerlink" title="从服务器下载整个目录"></a>从服务器下载整个目录</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp -r username@servername:/remote_dir /local_dir</span><br></pre></td></tr></table></figure><h2 id="上传目录到服务器"><a href="#上传目录到服务器" class="headerlink" title="上传目录到服务器"></a>上传目录到服务器</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp -r local_dir username@servername:remote_dir</span><br></pre></td></tr></table></figure><h1 id="E-N-D"><a href="#E-N-D" class="headerlink" title="E.N.D"></a>E.N.D</h1><p>小忍姐姐真是太帅了~</p><p><em>さようなら</em></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;一个平常的晚上，突然心血来潮想试试Blender 2.80的eevee，遂去官网看了下，没想到正式版都出来了，但下载安装包的时候却出现了极其蛋疼的问题：&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&quot;下载速度感人&quot; data-src=&quot;https://i.loli.net/2019/1
+      
+    
+    </summary>
+    
+    
+      <category term="技术宅" scheme="https://www.mashiro.vip/categories/%E6%8A%80%E6%9C%AF%E5%AE%85/"/>
+    
+    
+      <category term="scp" scheme="https://www.mashiro.vip/tags/scp/"/>
+    
+      <category term="服务器" scheme="https://www.mashiro.vip/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+  </entry>
   
   <entry>
     <title>WSL安装记</title>
