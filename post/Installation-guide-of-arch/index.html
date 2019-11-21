@@ -176,13 +176,12 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S xf86-video-intel</span><br></pre></td></tr></table></figure></li>
 <li><p>如果是ATI/AMD的话，可以参照<a href="https://wiki.archlinux.org/index.php/ATI_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)" target="_blank" rel="noopener">官方文档</a>的说明安装相应的驱动（建议选闭源的驱动，性能相对来说会更好），我这里就懒得写了（逃</p>
 </li>
-<li><p>一种Intel + Nvidia显卡的解决方案：</p>
+<li><p>一种Intel + Nvidia显卡的解决方案：<br>在桌面环境安装完成后再尝试此选项，本来这部分应该放到后面的，但既然说到了显卡驱动，也就一并写上了~</p>
 </li>
 </ul>
-<p>在桌面环境安装完成后再尝试此选项，本来这部分应该放到后面的，但既然说到了显卡驱动，也就一并写上了~</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># nvidia: 英伟达闭源驱动。如果使用自定义内核，那就安装nvidia-dkms</span></span><br><span class="line"><span class="comment"># bbswitch: 切换使用的节能工具。如果使用自定义内核，那就安装bbswitch-dkms</span></span><br><span class="line">sudo pacman -S nvidia bbswitch</span><br><span class="line"></span><br><span class="line"><span class="comment"># 托盘程序（可视化切换及设置）。会自动安装核心程序</span></span><br><span class="line"><span class="comment"># 如果配置有archlinuxcn源，那么同样可以使用pacman来安装</span></span><br><span class="line"><span class="comment"># 如果使用KDE桌面，另有optimus-manager-qt-kde可供选择</span></span><br><span class="line">yay -S optimus-manager-qt</span><br></pre></td></tr></table></figure>
 <p>安装完成后重启，应该就可以看到panel栏中的manager了，右键点击它，选择设置—Optimus，Switching method选择Bbswitch，确定保存。之后切换显卡就可以用右键方便地选择了。</p>
-<p>具体的项目地址在<a href="https://github.com/Askannz/optimus-manager" target="_blank" rel="noopener">这儿</a>。</p>
+<p>更多详细内容可以去看原作者的README文档，项目地址<a href="https://github.com/Askannz/optimus-manager" target="_blank" rel="noopener">这儿</a>。</p>
 <h2 id="Xorg"><a href="#Xorg" class="headerlink" title="Xorg"></a>Xorg</h2><p>接下来安装桌面环境需要的基础包xorg</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S xorg</span><br></pre></td></tr></table></figure>
 
