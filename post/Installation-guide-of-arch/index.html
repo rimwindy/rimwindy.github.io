@@ -48,21 +48,21 @@
 
 <h3 id="查看硬盘分区"><a href="#查看硬盘分区" class="headerlink" title="查看硬盘分区"></a>查看硬盘分区</h3><p>这一步比较重要，建议大家一定要看清楚再格盘。<br>可以使用lsblk来查看硬盘状态（确定刚才分好的硬盘）：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lsblk</span><br></pre></td></tr></table></figure>
-<p>就像这样：<br><img alt="lsblk" data-src="https://i.loli.net/2019/12/01/BcIDjK1gdltxP65.jpg" class="lozad"></p>
+<p>就像这样：<br><img alt="lsblk" data-src="https://i.loli.net/2019/12/01/LGITPo6rnJ5Stge.jpg" class="lozad"></p>
 <h3 id="格式化分区"><a href="#格式化分区" class="headerlink" title="格式化分区"></a>格式化分区</h3><p>当分区建立好了，这些分区都需要使用适当的文件系统进行格式化。举个例子，如果根分区在 /dev/sdX1 上并且会使用 ext4 文件系统，运行：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 根据上一步查看到的硬盘信息，将sdX1替换成你想要安装系统的磁盘号</span></span><br><span class="line">mkfs.ext4 /dev/sdX1</span><br></pre></td></tr></table></figure>
 
 <h3 id="挂载分区"><a href="#挂载分区" class="headerlink" title="挂载分区"></a>挂载分区</h3><p>如果你是单独一个Arch系统的话，则还应该分出一个新的EFI分区，如果是Win + Arch双系统的话，则需要挂载你原来的EFI分区到Arch的EFI分区上。</p>
 <p>执行以下命令将根分区挂载到/mnt：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将sdX1替换为之前创建的根分区</span></span><br><span class="line">mount /dev/sdX1 /mnt</span><br><span class="line"></span><br><span class="line">mkdir /mnt/boot</span><br><span class="line"><span class="comment"># sdX2是你的Win的EFI分区，一定要看清楚，一般大小在100M，200M左右。</span></span><br><span class="line">mount /dev/sdX2 /mnt/boot</span><br></pre></td></tr></table></figure>
-<p>挂载完成后可以用lsblk命令查看有没有挂载成功。比如我的硬盘情况：<br><img alt="mount" data-src="https://i.loli.net/2019/12/01/LOpasGZNQRV51XB.jpg" class="lozad"><br>sda是我的机械硬盘，sda1-3分别对应D、E、F分区，nvme0n1是我的固态硬盘，p1-p4几个分区分别对应我的EFI分区、MBR分区、Windows的C盘、Arch根分区。我没分swap分区，也没有单独分出home，大家按自己情况选择吧~（没有swap分区可能无法正常休眠）</p>
+<p>挂载完成后可以用lsblk命令查看有没有挂载成功。比如我的硬盘情况：<br><img alt="mount" data-src="https://i.loli.net/2019/12/01/Hk1ibSzBXewurtE.jpg" class="lozad"><br>sda是我的机械硬盘，sda1-3分别对应D、E、F分区，nvme0n1是我的固态硬盘，p1-p4几个分区分别对应我的EFI分区、MBR分区、Windows的C盘、Arch根分区。我没分swap分区，也没有单独分出home，大家按自己情况选择吧~（没有swap分区可能无法正常休眠）</p>
 <h3 id="选择软件镜像库"><a href="#选择软件镜像库" class="headerlink" title="选择软件镜像库"></a>选择软件镜像库</h3><p>软件仓库是软件包存储的地方，通常我们所说的软件仓库指在线软件仓库，亦即用户从互联网获取软件的地方，选择一个国内的镜像源可以加速我们的下载过程。</p>
 <blockquote>
 <p>接下来的安装过程会用到Vim，如果没有接触过的话可以先看看一些<a href="https://coolshell.cn/articles/5426.html" target="_blank" rel="noopener">教程</a>，掌握基本的操作。</p>
 </blockquote>
 <p>用Vim打开/etc/pacman.d/mirrorlist：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 提示：输入路径时可以用Tab键补全</span></span><br><span class="line">vim /etc/pacman.d/mirrorlist</span><br></pre></td></tr></table></figure>
-<p>在normal模式下输入/可以进行查找，比如中科大的源，就可以查找ustc。normal模式下按下dd可以剪切光标下的行，按gg回到文件首，按p将行粘贴到文件最前面的位置（优先级最高）。完成后输入:wq保存退出即可。就像下面这样：<br><img alt="source" data-src="https://i.loli.net/2019/12/01/h18RQMkunIrUGJa.jpg" class="lozad"></p>
+<p>在normal模式下输入/可以进行查找，比如中科大的源，就可以查找ustc。normal模式下按下dd可以剪切光标下的行，按gg回到文件首，按p将行粘贴到文件最前面的位置（优先级最高）。完成后输入:wq保存退出即可。就像下面这样：<br><img alt="source" data-src="https://i.loli.net/2019/12/01/FY2N58maAjkoJGf.jpg" class="lozad"></p>
 <p>然后可以先刷新一下软件包数据库：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -Syy</span><br></pre></td></tr></table></figure>
 
